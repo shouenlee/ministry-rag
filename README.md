@@ -3,11 +3,11 @@ LLM applied to the lifestudies.
 
 pip install -r requirements.txt
 
-###Ingestion pipeline
+### Ingestion pipeline
 python ingest.py --ingest
 
-###Chroma Server
+### Chroma Server
 chroma run --path ./vector_db
 
-###UX
+### UX
 python app.py
