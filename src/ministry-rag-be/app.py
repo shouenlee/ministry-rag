@@ -11,6 +11,7 @@ from azure_client import AzureClient
 import chromadb.utils.embedding_functions as embedding_functions
 
 class Server:
+
     def __init__(self):
         self.app = Flask(__name__)
         CORS(self.app)
@@ -21,6 +22,8 @@ class Server:
 
     def get_embedding_model(self):
         #TODO: Key based auth is disabled. Investigate managed identities.
+        #learn.microsoft.com/en-us/azure/api/management/api-management-authenticate-authorize-azure-openai
+        #https://github.com/LazaUK/AOAI-EntraIDAuth-SDKv1
         embedding_model = embedding_functions.OpenAIEmbeddingFunction(
             api_key=os.getenv("AZURE_OPENAI_API_KEY"),
             api_base=os.getenv("AZURE_OPENAI_ENDPOINT"),
