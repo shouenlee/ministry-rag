@@ -20,6 +20,7 @@ class Server:
         self.azure_client = AzureClient()
 
     def get_embedding_model(self):
+        #TODO: Key based auth is disabled. Investigate managed identities.
         embedding_model = embedding_functions.OpenAIEmbeddingFunction(
             api_key=os.getenv("AZURE_OPENAI_API_KEY"),
             api_base=os.getenv("AZURE_OPENAI_ENDPOINT"),
